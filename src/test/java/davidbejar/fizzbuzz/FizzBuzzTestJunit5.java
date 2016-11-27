@@ -144,13 +144,13 @@ public class FizzBuzzTestJunit5 {
 
 	@Test
 	@DisplayName("Test Quick Win FizzBuzz- old style")
-	void testQuickWin() {
+	void testQuickWin() throws InterruptedException {
 		Assertions.assertEquals(Arrays.asList(fizzBuzzExpected), FizzBuzz.fizzBuzzQuickWin());
 	}
 
 	@Test
 	@DisplayName("Test Quick Win FizzBuzz - Streams + Strings")
-	void testQuickWinJava8() {
+	void testQuickWinJava8() throws InterruptedException {
 		String joinStr = ", ";
 		Assertions.assertEquals(Arrays.stream(fizzBuzzExpected).collect(Collectors.joining(joinStr)),
 				FizzBuzz.fizzBuzzQuickWin().parallelStream().collect(Collectors.joining(joinStr)));
@@ -158,21 +158,21 @@ public class FizzBuzzTestJunit5 {
 
 	@Test
 	@DisplayName("Test Quick Win FizzBuzz- Streams + Lists")
-	void testQuickWinJava8v2() {
+	void testQuickWinJava8v2() throws InterruptedException {
 		Assertions.assertEquals(Arrays.stream(fizzBuzzExpected).collect(Collectors.toList()),
 				FizzBuzz.fizzBuzzQuickWin().parallelStream().collect(Collectors.toList()));
 	}
 
 	@Test
 	@DisplayName("Test Recursive FizzBuzz - old style")
-	void testRecursive() {
+	void testRecursive() throws InterruptedException {
 		Assertions.assertEquals(Arrays.asList(fizzBuzzExpected),
 				FizzBuzz.fizzBuzzRecursive(new ArrayList<String>(100)));
 	}
 
 	@Test
 	@DisplayName("Test Recursive FizzBuzz - Streams + Strings")
-	void testRecursiveJava8() {
+	void testRecursiveJava8() throws InterruptedException {
 		String joinStr = ", ";
 		Assertions.assertEquals(Arrays.stream(fizzBuzzExpected).collect(Collectors.joining(joinStr)), FizzBuzz
 				.fizzBuzzRecursive(new ArrayList<String>(100)).parallelStream().collect(Collectors.joining(joinStr)));
@@ -180,7 +180,7 @@ public class FizzBuzzTestJunit5 {
 
 	@Test
 	@DisplayName("Test Recursive FizzBuzz - Streams + Lists")
-	void testRecursiveJava8v2() {
+	void testRecursiveJava8v2() throws InterruptedException {
 		Assertions.assertEquals(Arrays.stream(fizzBuzzExpected).collect(Collectors.toList()),
 				FizzBuzz.fizzBuzzRecursive(new ArrayList<String>(100)).parallelStream().collect(Collectors.toList()));
 	}

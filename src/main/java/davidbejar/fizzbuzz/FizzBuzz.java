@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class FizzBuzz {
 
-	public static List<String> fizzBuzzQuickWin() {
+	public static List<String> fizzBuzzQuickWin() throws InterruptedException {
 		List<String> output = new ArrayList<>(100);
 		for (int i = 1; i <= 100; i++) {
 			if (i % 15 == 0) {
@@ -26,10 +26,11 @@ public class FizzBuzz {
 				output.add(String.valueOf(i));
 			}
 		}
+		Thread.sleep(10);// To help with benchmarking
 		return output;
 	}
 
-	public static List<String> fizzBuzzRecursive(List<String> fizzBuzzList) {
+	public static List<String> fizzBuzzRecursive(List<String> fizzBuzzList) throws InterruptedException {
 		int i = fizzBuzzList.size() + 1;
 		if (i == 100 + 1) {
 			return fizzBuzzList;
@@ -43,6 +44,7 @@ public class FizzBuzz {
 			} else {
 				fizzBuzzList.add(String.valueOf(i));
 			}
+			Thread.sleep(10);// To help with benchmarking
 			return fizzBuzzRecursive(fizzBuzzList);
 		}
 	}
